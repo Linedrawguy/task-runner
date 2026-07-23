@@ -29,6 +29,7 @@
     .hero{padding:32px 42px;border:1px solid var(--black);background:var(--panel)}
     .terminal-row{display:flex;justify-content:space-between;gap:18px;padding-bottom:18px;border-bottom:1px solid var(--black);color:var(--black);font-size:12px;text-transform:uppercase}
     .status::before{content:"●";margin-right:9px}
+    .ascii-mark{display:block;width:auto;height:clamp(90px,11vw,145px);max-width:100%;margin:24px auto 8px;object-fit:contain;mix-blend-mode:multiply;filter:grayscale(1) contrast(1.5)}
     .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:45px;align-items:end;padding-top:36px}
     h1{max-width:840px;margin:0;font-family:Futura,"Avenir Next","Century Gothic",Arial,sans-serif;font-size:clamp(48px,7.3vw,104px);font-weight:800;line-height:.86;letter-spacing:-.045em}
     .lead{max-width:800px;margin:25px 0 0;color:var(--black);font-size:17px}
@@ -56,6 +57,7 @@
     footer a{text-decoration:none;color:var(--green)}
     @media(max-width:800px){
       .shell{width:100%;margin:0;border:0}.nav a:not(.button){display:none}header{height:66px}
+      .ascii-mark{width:100%;height:auto;margin:22px 0 4px}
       main{padding:18px 12px}.hero{padding:24px}.hero-grid{grid-template-columns:1fr;gap:26px}
       .hero-actions{grid-template-columns:1fr 1fr}.strip{grid-template-columns:1fr}.strip article{border-right:0;border-bottom:1px solid var(--line);min-height:auto}.strip article:last-child{border-bottom:0}
       .guide{grid-template-columns:1fr;padding:28px 10px 20px}.tools{grid-template-columns:1fr}.tool,.tool:nth-child(2n),.tool:nth-last-child(-n+2){border-right:0;border-bottom:1px solid var(--line)}.tool:last-child{border-bottom:0}
@@ -77,6 +79,7 @@
     <main id="top">
       <section class="hero">
         <div class="terminal-row"><span>$ taskrunner --local</span><span class="status">v0.9.2 public beta</span></div>
+        <img class="ascii-mark" src="https://linedrawguy.github.io/task-runner/assets/taskrunner-ascii.png" alt="TaskRunner line-art wordmark">
         <div class="hero-grid">
           <div>
             <h1>Plan. Focus.<br>Finish.</h1>
