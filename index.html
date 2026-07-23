@@ -9,49 +9,50 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/taskrunner-icon-192.png">
   <link rel="apple-touch-icon" href="assets/taskrunner-icon-192.png">
   <style>
-    @font-face{font-family:Moonhouse;src:url("assets/moonhouse.woff") format("woff");font-display:swap}
-    :root{--green:#1cc825;--black:#080a08;--panel:#0d100d;--line:#253025;--white:#f4f7f4;--muted:#a8b0a8}
+    :root{--green:#1cc825;--black:#080a08;--panel:#1cc825;--line:#080a08;--white:#f4f7f4;--muted:#173619}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;background:#e9ecef;color:var(--white);font:14px/1.45 "Courier New",monospace}
+    body{margin:0;background:var(--green);color:var(--black);font:14px/1.45 "Courier New",monospace}
     a{color:inherit}
-    .shell{width:min(1300px,calc(100% - 32px));margin:16px auto;background:var(--black);border:1px solid #171b17}
-    header{height:78px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--green)}
-    .brand{font-family:Moonhouse,Arial,sans-serif;font-size:19px;text-decoration:none;letter-spacing:.06em}
+    .shell{width:min(1300px,calc(100% - 32px));margin:16px auto;background:var(--green);border:1px solid var(--black)}
+    header{height:78px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;background:var(--black);color:var(--white);border-bottom:1px solid var(--black)}
+    .brand{font-family:"Courier New",monospace;font-size:16px;font-weight:700;text-decoration:none;letter-spacing:0}
     .brand span,.nav a:hover{color:var(--green)}
     .nav{display:flex;align-items:center;gap:28px}
     .nav a{text-decoration:none;font-size:12px;text-transform:uppercase}
-    .button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border:1px solid var(--green);background:transparent;color:var(--white);font-weight:700;text-decoration:none;text-transform:uppercase}
-    .button.primary{background:var(--green);color:#020402}
-    .button:hover{background:var(--white);border-color:var(--white);color:#050705}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border:1px solid var(--black);background:transparent;color:var(--black);font-weight:700;text-decoration:none;text-transform:uppercase}
+    header .button{border-color:var(--green);color:var(--green)}
+    .button.primary{background:var(--black);color:var(--green)}
+    header .button.primary{background:var(--green);color:var(--black)}
+    .button:hover{background:var(--white);border-color:var(--white);color:var(--black)}
     main{padding:34px 20px 18px}
-    .hero{padding:32px 42px;border:1px solid var(--green);background:var(--panel)}
-    .terminal-row{display:flex;justify-content:space-between;gap:18px;padding-bottom:18px;border-bottom:1px solid var(--green);color:var(--green);font-size:12px;text-transform:uppercase}
+    .hero{padding:32px 42px;border:1px solid var(--black);background:var(--panel)}
+    .terminal-row{display:flex;justify-content:space-between;gap:18px;padding-bottom:18px;border-bottom:1px solid var(--black);color:var(--black);font-size:12px;text-transform:uppercase}
     .status::before{content:"●";margin-right:9px}
     .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:45px;align-items:end;padding-top:36px}
-    h1{max-width:840px;margin:0;font-family:Moonhouse,Arial,sans-serif;font-size:clamp(48px,7.3vw,104px);line-height:.82;letter-spacing:.01em}
-    .lead{max-width:800px;margin:25px 0 0;color:var(--muted);font-size:17px}
+    h1{max-width:840px;margin:0;font-family:Futura,"Avenir Next","Century Gothic",Arial,sans-serif;font-size:clamp(48px,7.3vw,104px);font-weight:800;line-height:.86;letter-spacing:-.045em}
+    .lead{max-width:800px;margin:25px 0 0;color:var(--black);font-size:17px}
     .hero-actions{display:grid;gap:12px}
     .strip{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-top:0}
     .strip article{min-height:142px;padding:22px;border-right:1px solid var(--line)}
     .strip article:last-child{border-right:0}
-    .label{color:var(--green);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+    .label{color:var(--black);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
     h2,h3,p{margin-top:0}
-    .strip h2{margin:8px 0 8px;font:26px/1 Moonhouse,Arial,sans-serif}
+    .strip h2{margin:8px 0 8px;font:700 25px/1 Futura,"Avenir Next","Century Gothic",Arial,sans-serif}
     .strip p{margin-bottom:0;color:var(--muted)}
     .guide{display:grid;grid-template-columns:300px 1fr;gap:28px;padding:34px 22px 24px}
-    .guide h2{margin:8px 0 12px;font:38px/.95 Moonhouse,Arial,sans-serif}
+    .guide h2{margin:8px 0 12px;font:700 38px/.95 Futura,"Avenir Next","Century Gothic",Arial,sans-serif}
     .guide-intro{color:var(--muted)}
     .tools{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line)}
     .tool{padding:17px 19px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
     .tool:nth-child(2n){border-right:0}
     .tool:nth-last-child(-n+2){border-bottom:0}
-    .tool h3{margin:5px 0 5px;font-size:15px;color:var(--white)}
+    .tool h3{margin:5px 0 5px;font-size:15px;color:var(--black)}
     .tool p{margin:0;color:var(--muted);font-size:12px}
-    .when{color:var(--green)}
-    .checkline{margin:0 22px 28px;padding:15px 18px;border-left:3px solid var(--green);background:#0b110b;color:var(--muted)}
+    .when{color:var(--black);font-weight:700}
+    .checkline{margin:0 22px 28px;padding:15px 18px;border-left:3px solid var(--green);background:var(--black);color:var(--green)}
     .checkline strong{color:var(--white)}
-    footer{min-height:64px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);color:var(--muted);font-size:11px}
+    footer{min-height:64px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;background:var(--black);border-top:1px solid var(--black);color:var(--green);font-size:11px}
     footer a{text-decoration:none;color:var(--green)}
     @media(max-width:800px){
       .shell{width:100%;margin:0;border:0}.nav a:not(.button){display:none}header{height:66px}
