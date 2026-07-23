@@ -1,14 +1,12 @@
 # TaskRunner
 
-TaskRunner is a local-first Windows productivity app for planning work, running focus timers, and connecting rooms over a private LAN.
+TaskRunner helps you plan work, run focus sessions, and connect nearby computers through rooms on your local network.
 
 [Visit the TaskRunner website](https://linedrawguy.github.io/task-runner/) or [download TaskRunner v0.9.2 for Windows x64](https://github.com/Linedrawguy/task-runner/releases/download/v0.9.2/TaskRunner_0.9.2_x64-setup.exe).
 
 ## About this repository
 
-This public repository contains only the static landing page and public release downloads. The desktop application's source code is maintained separately and is not published here.
-
-It contains no application database, Firebase configuration, API keys, room passwords, user tasks, backend server code, or private Tauri source.
+This public repository contains only the landing page and public release downloads. The desktop application's source code is maintained separately and is not published here.
 
 Windows installers are attached to GitHub Releases and are never committed to the website source.
 
