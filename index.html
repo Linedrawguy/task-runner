@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#080a08">
-  <meta name="description" content="TaskRunner keeps task planning simple, local, and ready to share across a private network.">
+  <meta name="description" content="TaskRunner keeps planning simple: run tasks locally, share nearby, or scan a QR code to carry a live dashboard on your phone.">
   <title>TaskRunner — Keep It Simple</title>
   <link rel="icon" type="image/png" sizes="192x192" href="assets/taskrunner-icon-192.png">
   <link rel="apple-touch-icon" href="assets/taskrunner-icon-192.png">
@@ -34,13 +34,22 @@
     h1{max-width:840px;margin:0;font-family:Futura,"Avenir Next","Century Gothic",Arial,sans-serif;font-size:clamp(48px,7.3vw,104px);font-weight:800;line-height:.86;letter-spacing:-.045em}
     .lead{max-width:800px;margin:25px 0 0;color:var(--black);font-size:17px}
     .hero-actions{display:grid;gap:12px}
-    .strip{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-top:0}
+    .strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-top:0}
     .strip article{min-height:142px;padding:22px;border-right:1px solid var(--line)}
     .strip article:last-child{border-right:0}
     .label{color:var(--black);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
     h2,h3,p{margin-top:0}
     .strip h2{margin:8px 0 8px;font:700 25px/1 Futura,"Avenir Next","Century Gothic",Arial,sans-serif}
     .strip p{margin-bottom:0;color:var(--muted)}
+    .handoff{display:grid;grid-template-columns:minmax(260px,.85fr) minmax(0,1.6fr);gap:30px;margin:34px 22px 0;padding:30px;border:1px solid var(--green);background:var(--black);color:var(--white)}
+    .handoff .label{color:var(--green)}
+    .handoff h2{margin:9px 0 12px;font:700 clamp(34px,5vw,62px)/.92 Futura,"Avenir Next","Century Gothic",Arial,sans-serif;letter-spacing:-.04em}
+    .handoff-intro{margin:0;color:#b8c5ba}
+    .handoff-steps{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #315f35}
+    .handoff-steps article{padding:20px;border-right:1px solid #315f35}
+    .handoff-steps article:last-child{border-right:0}
+    .handoff-steps strong{display:block;margin:8px 0 7px;color:var(--green);font:700 19px/1.05 Futura,"Avenir Next","Century Gothic",Arial,sans-serif}
+    .handoff-steps p{margin:0;color:#9ca9a0;font-size:12px}
     .guide{display:grid;grid-template-columns:300px 1fr;gap:28px;padding:34px 22px 24px}
     .guide h2{margin:8px 0 12px;font:700 38px/.95 Futura,"Avenir Next","Century Gothic",Arial,sans-serif}
     .guide-intro{color:var(--muted)}
@@ -59,7 +68,8 @@
       .shell{width:100%;margin:0;border:0}.nav a:not(.button){display:none}header{height:66px}
       .ascii-mark{width:100%;height:auto;margin:22px 0 4px}
       main{padding:18px 12px}.hero{padding:24px}.hero-grid{grid-template-columns:1fr;gap:26px}
-      .hero-actions{grid-template-columns:1fr 1fr}.strip{grid-template-columns:1fr}.strip article{border-right:0;border-bottom:1px solid var(--line);min-height:auto}.strip article:last-child{border-bottom:0}
+      .hero-actions{grid-template-columns:1fr 1fr}.strip{grid-template-columns:1fr 1fr}.strip article{border-bottom:1px solid var(--line);min-height:auto}.strip article:nth-child(2n){border-right:0}.strip article:nth-last-child(-n+2){border-bottom:0}
+      .handoff{grid-template-columns:1fr;margin:26px 10px 0;padding:24px}.handoff-steps{grid-template-columns:1fr}.handoff-steps article{border-right:0;border-bottom:1px solid #315f35}.handoff-steps article:last-child{border-bottom:0}
       .guide{grid-template-columns:1fr;padding:28px 10px 20px}.tools{grid-template-columns:1fr}.tool,.tool:nth-child(2n),.tool:nth-last-child(-n+2){border-right:0;border-bottom:1px solid var(--line)}.tool:last-child{border-bottom:0}
       footer{align-items:flex-start;gap:12px;flex-direction:column;padding:20px 22px}.terminal-row{flex-direction:column}.status{display:none}
     }
@@ -70,8 +80,8 @@
     <header>
       <a class="brand" href="#top"><span>$</span> TaskRunner focus</a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="#lan">LAN guide</a>
-        <a href="#tools">Troubleshoot</a>
+        <a href="#mobile">Phone handoff</a>
+        <a href="#lan">Nearby sharing</a>
         <a class="button primary" href="https://github.com/Linedrawguy/task-runner/releases/download/v0.9.2/TaskRunner_0.9.2_x64-setup.exe">Download</a>
       </nav>
     </header>
@@ -83,22 +93,36 @@
         <div class="hero-grid">
           <div>
             <h1>Keep it<br>simple.</h1>
-            <p class="lead">A focused task runner with local rooms. Host a room on your private network so nearby TaskRunner users can connect without using the internet.</p>
+            <p class="lead">Plan and run tasks on your computer, share dashboards across a private network, or scan a QR code to receive a self-contained mobile dashboard you can save and carry on the go.</p>
           </div>
           <div class="hero-actions">
             <a class="button primary" href="https://github.com/Linedrawguy/task-runner/releases/download/v0.9.2/TaskRunner_0.9.2_x64-setup.exe">Download beta</a>
-            <a class="button" href="#lan">How LAN works</a>
+            <a class="button" href="#mobile">See phone handoff</a>
           </div>
         </div>
       </section>
 
-      <section class="strip" id="lan" aria-label="LAN room guide">
-        <article><span class="label">01 / Host</span><h2>Start a room</h2><p>Use one computer as the host. Keep TaskRunner open, then share its local address, room key, and password.</p></article>
-        <article><span class="label">02 / Join</span><h2>Connect nearby</h2><p>Use this when both computers are on the same Wi-Fi or wired network. Probe the host, then join the room.</p></article>
-        <article><span class="label">03 / Finish</span><h2>End the host</h2><p>End Host when the session is finished. Closing TaskRunner on the host computer also ends the room.</p></article>
+      <section class="strip" aria-label="TaskRunner core features">
+        <article><span class="label">01 / Plan</span><h2>Run your day</h2><p>Organize projects, timers, breaks, priorities, and completion history in one focused desktop workspace.</p></article>
+        <article><span class="label">02 / Share</span><h2>Connect nearby</h2><p>Share task dashboards between computers on the same Wi-Fi or wired network without a cloud account.</p></article>
+        <article><span class="label">03 / Scan</span><h2>Open on phone</h2><p>Generate a personal QR code and scan it to receive a clean mobile dashboard in seconds.</p></article>
+        <article><span class="label">04 / Go</span><h2>Keep it with you</h2><p>Track tasks and timers on the move, then save or send a self-contained offline HTML copy.</p></article>
       </section>
 
-      <section class="guide" id="tools">
+      <section class="handoff" id="mobile" aria-labelledby="mobile-title">
+        <div>
+          <span class="label">Phone handoff</span>
+          <h2 id="mobile-title">Scan once. Keep moving.</h2>
+          <p class="handoff-intro">An administrator chooses a person and their tasks. TaskRunner turns that assignment into a short-lived QR link, while the phone keeps the received dashboard locally.</p>
+        </div>
+        <div class="handoff-steps">
+          <article><span class="label">01</span><strong>Generate</strong><p>Create a private QR for one person’s task packet from the desktop dashboard.</p></article>
+          <article><span class="label">02</span><strong>Scan</strong><p>Open the mobile dashboard in Chrome or Safari and start working immediately.</p></article>
+          <article><span class="label">03</span><strong>Save or send</strong><p>Keep an offline HTML recovery copy or share the complete dashboard by text or email.</p></article>
+        </div>
+      </section>
+
+      <section class="guide" id="lan">
         <div>
           <span class="label">Network help</span>
           <h2>Know what to check.</h2>
@@ -106,13 +130,13 @@
         </div>
         <div class="tools">
           <article class="tool"><span class="when">CAN'T FIND THE ROOM</span><h3>Discovery</h3><p>Confirm both computers are on the same router and the host is still running.</p></article>
-          <article class="tool"><span class="when">BEFORE JOINING</span><h3>Probe Host</h3><p>Test the host address and room details before opening the full room.</p></article>
+          <article class="tool"><span class="when">BEFORE JOINING</span><h3>Connection Check</h3><p>Confirm the host address and room details before opening the full room.</p></article>
           <article class="tool"><span class="when">SYNC FEELS SLOW</span><h3>Network Health</h3><p>Check Discovery, Host, Peers, and Sync to see which part needs attention.</p></article>
           <article class="tool"><span class="when">STILL NOT WORKING</span><h3>Diagnostics</h3><p>Run the checks and copy a safe report without including the room password.</p></article>
         </div>
       </section>
 
-      <p class="checkline"><strong>Fast connection check:</strong> keep the host open → use the same local network → allow TaskRunner through Windows Firewall → run Probe Host.</p>
+      <p class="checkline"><strong>Fast connection check:</strong> keep the host open → use the same local network → allow TaskRunner through Windows Firewall → run Connection Check.</p>
     </main>
 
     <footer>
