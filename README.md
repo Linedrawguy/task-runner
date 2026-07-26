@@ -1,14 +1,35 @@
 # TaskRunner
 
-TaskRunner helps you plan work, run focus sessions, and connect nearby computers through rooms on your local network.
+TaskRunner helps you plan work, run focus sessions, and connect nearby computers through rooms on your local network. Native release packages are available for Windows and Linux x64.
 
-[Visit the TaskRunner website](https://linedrawguy.github.io/task-runner/) or [download TaskRunner v0.9.2 for Windows x64](https://github.com/Linedrawguy/task-runner/releases/download/v0.9.2/TaskRunner_0.9.2_x64-setup.exe).
+[Visit the TaskRunner website](https://linedrawguy.github.io/task-runner/) or choose a release:
+
+- [Windows 10/11 x64 installer](https://github.com/Linedrawguy/task-runner/releases/download/v0.9.2/TaskRunner_0.9.2_x64-setup.exe)
+- [Linux x64 AppImage](https://github.com/Linedrawguy/task-runner/releases/download/v0.9.2/TaskRunner_0.9.2_amd64.AppImage)
+- [Linux x64 Debian package](https://github.com/Linedrawguy/task-runner/releases/download/v0.9.2/TaskRunner_0.9.2_amd64.deb)
 
 ## About this repository
 
 This public repository contains only the landing page and public release downloads. The desktop application's source code is maintained separately and is not published here.
 
-Windows installers are attached to GitHub Releases and are never committed to the website source.
+Windows and Linux packages are attached to GitHub Releases and are never committed to the website source.
+
+## Linux installation
+
+AppImage:
+
+```bash
+chmod +x TaskRunner_0.9.2_amd64.AppImage
+./TaskRunner_0.9.2_amd64.AppImage
+```
+
+Debian, Ubuntu, Linux Mint, Pop!_OS, and related distributions:
+
+```bash
+sudo apt install ./TaskRunner_0.9.2_amd64.deb
+```
+
+To use local rooms, keep the host app open, connect devices to the same local network, and allow TaskRunner through the Linux firewall if prompted.
 
 ## Website contents
 
@@ -21,4 +42,4 @@ Windows installers are attached to GitHub Releases and are never committed to th
 
 ## Beta notice
 
-The current Windows beta is unsigned. Windows SmartScreen may display an unknown-publisher warning. Only download TaskRunner from this repository's official Releases page.
+The current Windows and Linux beta packages are unsigned. Windows SmartScreen may display an unknown-publisher warning. Linux desktop environments may ask you to confirm that the AppImage is executable. Only download TaskRunner from this repository's official Releases page.
